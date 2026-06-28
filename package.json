@@ -6,10 +6,7 @@
     "apps/*",
     "packages/*"
   ],
-  "overrides": {
-    "react-native": "0.81.5",
-    "react": "19.1.0"
-  },
+  "overrides": {},
   "scripts": {
     "dev:client": "npm run start --workspace=apps/client",
     "dev:livreur": "npm run start --workspace=apps/livreur",

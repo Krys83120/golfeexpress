@@ -59,6 +59,24 @@ async function handler(req: NextRequest) {
   // Si cette étape échoue, on supprime le compte Auth créé juste avant pour
   // éviter un compte "orphelin" (User sans Client/Pro/Rider) que la personne
   // ne pourrait plus recréer (email déjà pris).
+  await prisma.user.upsert({
+  where: { id: data.user.id },
+  update: {
+    email,
+    firstName,
+    lastName,
+    phone,
+    role: role ?? "CLIENT",
+  },
+  create: {
+    id: data.user.id,
+    email,
+    firstName,
+    lastName,
+    phone,
+    role: role ?? "CLIENT",
+  },
+});
   try {
     if (role === "PRO") {
       await prisma.pro.create({
