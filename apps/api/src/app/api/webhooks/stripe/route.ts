@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 import { NextRequest, NextResponse } from "next/server";
 import { OrderStatus, PaymentStatus } from "@golfeexpress/types";
 import { stripe } from "@/lib/stripe";
